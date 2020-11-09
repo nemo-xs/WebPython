@@ -87,7 +87,6 @@ local_settings.py
 *.sqlite3
 *.sqlite3-journal
 django_prj/
-books.db
 
 # Flask stuff:
 instance/
@@ -130,8 +129,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.envrc
 .DS_Store
+.envrc
 .anaconda
 .env
 .env*
