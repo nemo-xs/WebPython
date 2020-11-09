@@ -1,0 +1,38 @@
+<div class="topic-list">
+  <!-- переменная topics берется из контекста views/index -->
+  {% for topic in topics %}
+    <div class="topic-list__item">
+      <!-- запись topic и прочее, по стандарту шаблонов dkango -->
+      <h4><a href="#">{{ topic.title }}</a></h4>
+      <!-- для вывода категории топика, тоже используется цикл for -->
+      <h6>Категория ({{topic.categories__count}}):
+        {% for category in topic.categories.all %}
+        <!-- цикл if not чтобы не выводить запятую в конце последней категории -->
+        {{category.title}}{% if not forloop.last %},{% endif %}{% endfor %}</h6>
+      <!-- вывод тела топика через переменную -->
+      <p>{{ topc.body }}</p>
+      <a href="{% url 'topic_details' %}" class="btn btn-outline-primary">More...</a>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="topic-list_old">
+  <div class="topic-list_old__item">
+    <h4><a href="#">Test</a></h4>
+    <h6>Категория: Test</h6>
+    <p>ФРагмент текста...</p>
+    <a href="{% url 'topic_details' %}" class="btn btn-outline-primary">More...</a>
+  </div>
+  <div class="topic-list_old__item">
+    <h4><a href="#">Test</a></h4>
+    <h6>Категория: Test</h6>
+    <p>ФРагмент текста...</p>
+    <a href="{% url 'topic_details' %}" class="btn btn-outline-primary">More...</a>
+  </div>
+  <div class="topic-list_old__item">
+    <h4><a href="#">Test</a></h4>
+    <h6>Категория: Test</h6>
+    <p>ФРагмент текста...</p>
+    <a href="{% url 'topic_details' %}" class="btn btn-outline-primary">More...</a>
+  </div>
+</div>

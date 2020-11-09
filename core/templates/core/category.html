@@ -1,0 +1,14 @@
+<div class="category">
+  <!-- categories - из index/views -->
+  {% for category in categories %}
+  <div class="category__item">
+    <a href="#">{{ category.title }}from BD</a>
+  </div>
+  {% endfor %}
+  <div class="category__item">
+    <a href="#">Category 1 old</a>
+  </div>
+  <div class="category__item">
+    <a href="#">Category 2 old</a>
+  </div>
+</div>

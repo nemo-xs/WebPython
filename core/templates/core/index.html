@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+<!-- подключение тега static, чтобы передавать стили/js унифицированно -->
+{% load static %}
+
+{% block title %} Index {% endblock title %}
+
+<!-- подключение стилей приложения -->
+{% block styles %}
+<!-- подключение файла стилей приложения через тэг static -->
+<link rel="stylesheet" type="text/css" href="{% static "core/css/index.css" %}">
+{% endblock styles %}
+
+<!-- основной блок кода -->
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <!-- вставка внешнего куска кода через include -->
+      {% include "core/topic_list.html" %}
+    </div>
+    <div class="col-4">
+      {% include "core/category.html" %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+<!-- указание что наследуется от base.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<!-- подключение файла стилей приложения через тэг static -->
+<link rel="stylesheet" type="text/css" href="{% static "core/css/index.css" %}">
+{% endblock styles %}
+
+<!-- указание, что вносим изменения в блок content -->
+{% block content %}
+<div class="container">
+  <div class="topic">
+    <h4><a href="#">{{ topic.title }}</a></h4>
+    <!-- для вывода категории топика, тоже используется цикл for -->
+    <h6>Категория ({{topic.categories.count}}):
+      {% for category in topic.categories.all %}
+      <!-- цикл if not чтобы не выводить запятую в конце последней категории -->
+      {{category.title}}{% if not forloop.last %},{% endif %}{% endfor %}</h6>
+    <!-- вывод тела топика через переменную -->
+    <p>{{ topc.body }}</p>
+  </div>
+</div>
+<div class="container">
+  <div class="topic">
+    <h4><a href="#">Test</a></h4>
+    <h6>Категория: Test</h6>
+    <p>Полный текст заметки в блоге</p>
+  </div>
+</div>
+{% endblock content %}
